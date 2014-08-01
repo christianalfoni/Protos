@@ -29,34 +29,29 @@
     })
   };
   
-  window.Protos = function (name, Proto, existingPrototype) {
+  var createBasePrototype = function (Proto) {
+    return {
+      Prototype: Proto
+    }
+  };
+  
+  window.Protos = function (name, Constr, Proto, existingPrototype) {
     if (!validArguments(arguments)) {
       throw new Error('You are not passing valid arguments!');
     }
     
-    Proto = renameConstructor(name, Proto);
-    var inheritedPrototype = existingPrototype || Object.prototype;
-
-    var Constr = createEmptyConstructor(name);
-    var prototype = new Proto();
-    if (isProtosObject(prototype)) {
-      Constr = prototype.constr ? renameConstructor(name, prototype.constr) : Constr;
-      prototype.proto.prototype = inheritedPrototype;
-      prototype = new prototype.Prototype();
-      Constr.prototype = prototype;
-    } else {
-      Proto.prototype = inheritedPrototype;
-      Constr = Proto;
-    }
-    
-    Constr.extend = function (name, Proto) {
+    Proto = renameConstructor(name + 'Prototype', Proto || Constr);
+    Proto.prototype = existingPrototype || Object.prototype;
+    Constr = arguments.length > 2 ? renameConstructor(name, Constr) : createEmptyConstructor(name);
+    Constr.prototype = new Proto();
+    addConstructorTo(Constr.prototype, Constr);    
+    Constr.extend = function (name, Constr, Proto) {
       if (this.prototype === Object.prototype) {
         throw new Error('The following constructor does not have a prototype defined, you can not extend it: ' + this);
       }
-      return Protos(name, Proto, this.prototype);
+      return Protos(name, Constr, Proto, this.prototype);
 
     };
-    addConstructorTo(prototype, Constr);
     return Constr;
   };
 
