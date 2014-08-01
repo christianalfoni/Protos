@@ -110,4 +110,4 @@ obj.__proto__ // => MyBasic.Prototype { defaultValue: 'test', doSomething: funct
 
 Again you see a very natural named prototype chain.
 
-As stated in the article I believe there is much confusion on what a prototype, prototype chain and inheritance really is. The prototype is an instance of an object you have defined. The constructors only job is to instantiate a new object, not define it.
+As stated in the article I believe there is much confusion on what a prototype, prototype chain and inheritance really is. The prototype is an instance of an object you have defined. The constructors only job is to instantiate a new object, not define it. That is at least the approach of this lib :-)
