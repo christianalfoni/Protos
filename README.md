@@ -38,7 +38,7 @@ new MyObject(); // => MyObject { doSomething: function... , doThis: function... 
 ```
 
 ### Creating a prototype
-As discussed in the article, this library takes the approach that native JavaScript does. First building a prototype of your object, then expose a constructor that holds an instance of the prototype as its own prototype. To build such a structure do the following:
+As discussed in the article, this library takes the approach that native JavaScript does. First building a prototype of your object, then expose a constructor that holds an instance of the prototype on the its prototype property. To build such a structure do the following:
 
 ```javascript
 var MyObject = Protos('MyObject', function () {
