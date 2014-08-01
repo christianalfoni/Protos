@@ -101,7 +101,7 @@ var MyBasic = Protos('MyBasic', function () {
   };
   
 });
-var MyExtended = MyBasic.extend(('MyExtended', function () {
+var MyExtended = MyBasic.extend('MyExtended', function () {
   this.doThis = function () {};
 });
 var obj = new MyExtended(); // => MyExtended { doThis: function... }
