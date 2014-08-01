@@ -7,7 +7,7 @@ Inheritance the native JavaScript way
 
 Read my article on JavaScript inheritance and find out why I built this:
 
-[http://www.christianalfoni.com/javascript/2014/07/30/2014-07-30-solving-javascript-inheritance.html](www.christianalfoni.com)
+[www.christianalfoni.com](http://www.christianalfoni.com/javascript/2014/07/30/2014-07-30-solving-javascript-inheritance.html)
 
 # Syntax
 
